@@ -1,6 +1,6 @@
 # CypressTest
 
-Code for testing site using Cypress using Javascript
+Code for testing site using Cypress and Javascript
 
 
 # Setup
