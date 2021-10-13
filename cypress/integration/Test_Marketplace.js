@@ -14,16 +14,16 @@ it('testRedirectionOfNFTCard', () => {
 it('testRedirectionBackFromNFTCard', () => {
     marketPage.navigate()
     marketPage.clickNFTCard()
-    cy.get('.Cross_crossAnimation__2lLWX').click()
+    cy.get(marketPage.marketPlace_NFT_Card_X_Button).click()
     cy.url().should('not.include', 'asset=')
 })
 
 //Test for image URL for Art category
 it('testImageURLFromArtNFTCard', () => {
     marketPage.navigate()
-    cy.get('[data-test-id="marketplace-category-art-button"]')
+    cy.get(marketPage.marketPlace_Art_Category_Button)
     .click()
-    cy.get('.css-10yi4wi').within(($div)=>{
+    cy.get(marketPage.marketPlace_NFT_Card).within(($div)=>{
         cy.contains('a')
             .should('have.attr','href')   
     })
@@ -32,9 +32,9 @@ it('testImageURLFromArtNFTCard', () => {
 //Test for image URL for Celebrities category
 it('testImageURLFromCelebritiesNFTCard', () => {
     marketPage.navigate()
-    cy.get('[data-test-id="marketplace-category-celebrities-button"]')
+    cy.get(marketPage.marketPlace_Celebrities_Category_Button)
     .click()
-    cy.get('.css-10yi4wi').within(($div)=>{
+    cy.get(marketPage.marketPlace_NFT_Card).within(($div)=>{
         cy.contains('a')
             .should('have.attr','href')   
     })
@@ -43,9 +43,9 @@ it('testImageURLFromCelebritiesNFTCard', () => {
 //Test for image URL for Gaming category
 it('testImageURLFromGamingNFTCard', () => {
     marketPage.navigate()
-    cy.get('[data-test-id="marketplace-category-gaming-button"]')
+    cy.get(marketPage.marketPlace_Gaming_Category_Button)
     .click()
-    cy.get('.css-10yi4wi').within(($div)=>{
+    cy.get(marketPage.marketPlace_NFT_Card).within(($div)=>{
         cy.contains('a')
             .should('have.attr','href')   
     })
@@ -54,9 +54,9 @@ it('testImageURLFromGamingNFTCard', () => {
 //Test for image URL for Sport category
 it('testImageURLFromSportNFTCard', () => {
     marketPage.navigate()
-    cy.get('[data-test-id="marketplace-category-sport-button"]')
+    cy.get(marketPage.marketPlace_Sport_Category_Button)
     .click()
-    cy.get('.css-10yi4wi').within(($div)=>{
+    cy.get(marketPage.marketPlace_NFT_Card).within(($div)=>{
         cy.contains('a')
             .should('have.attr','href')   
     })
@@ -65,9 +65,9 @@ it('testImageURLFromSportNFTCard', () => {
 //Test for image URL for Music category
 it('testImageURLFromMusicNFTCard', () => {
     marketPage.navigate()
-    cy.get('[data-test-id="marketplace-category-music-button"]')
+    cy.get(marketPage.marketPlace_Music_Category_Button)
     .click()
-    cy.get('.css-10yi4wi').within(($div)=>{
+    cy.get(marketPage.marketPlace_NFT_Card).within(($div)=>{
         cy.contains('a')
             .should('have.attr','href')   
     })
@@ -76,9 +76,9 @@ it('testImageURLFromMusicNFTCard', () => {
 //Test for image URL for Crypto category
 it('testImageURLFromCryptoNFTCard', () => {
     marketPage.navigate()
-    cy.get('[data-test-id="marketplace-category-crypto-button"]')
+    cy.get(marketPage.marketPlace_Crypto_Category_Button)
     .click()
-    cy.get('.css-10yi4wi').within(($div)=>{
+    cy.get(marketPage.marketPlace_NFT_Card).within(($div)=>{
         cy.contains('a')
             .should('have.attr','href')   
     })
@@ -87,11 +87,11 @@ it('testImageURLFromCryptoNFTCard', () => {
 //Test for dropdown menu
 it('testDropDownFilter', () => {
     marketPage.navigate()
-    cy.get(':nth-child(1) > .css-fvr380 > :nth-child(1) > .HighlightButton_container__KsiUh > .css-1eygapw')
+    cy.get(marketPage.marketPlace_Filter_Dropdown_Menu_Button)
         .click()
         .then(()=>{
         cy.wait(500)
-        assert.isNotNaN('.FilterDropdown_dropdown__3MYbQ', 'Dropdown menu did show')
+        assert.isNotNaN(marketPage.marketPlace_Filter_Dropdown_Menu, 'Dropdown menu did show')
     })
 })
 

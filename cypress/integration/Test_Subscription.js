@@ -4,16 +4,54 @@ import {mainPage} from "../pages/main_page"
 const cryptoPage = new mainPage()
 
 
-//Test when input invalid email for subscription
-it('testSubscriptionInputField', () => {
+//Test when empty input email for subscription
+it('testEmptySubscriptionInputField', () => {
     cryptoPage.navigate()
     cryptoPage.scrollToSubscription()
-    cy.get('.css-p0qlum')
-        .find('.css-1xa8gwl')
-        .type('test')
-    cy.get('.SubscribeForm_subscriptionButton__3nRUQ').click().then(()=>{
+    cy.get(cryptoPage.mainPage_Subscription_Box)
+        .find(cryptoPage.mainPage_Subscription_Text_Field)
+    cy.get(cryptoPage.mainPage_Subscription_Button).click().then(()=>{
         cy.wait(500)
-        assert.isNotNaN('.SubscribeForm_successBlock__2cpvI', 'Did not subscribe due to invalid email')
+        assert.isNotNaN(cryptoPage.mainPage_Subscription_Success_Element, 'Did not subscribe due to invalid email')
+    })
+})
+
+//Test when input invalid text input for subscription
+it('testInvalidTextInputSubscriptionInputField', () => {
+    cryptoPage.navigate()
+    cryptoPage.scrollToSubscription()
+    cy.get(cryptoPage.mainPage_Subscription_Box)
+        .find(cryptoPage.mainPage_Subscription_Text_Field)
+        .type('test')
+    cy.get(cryptoPage.mainPage_Subscription_Button).click().then(()=>{
+        cy.wait(500)
+        assert.isNotNaN(cryptoPage.mainPage_Subscription_Success_Element, 'Did not subscribe due to invalid email')
+    })
+})
+
+//Test when input invalid number input for subscription
+it('testInvalidNumberInputSubscriptionInputField', () => {
+    cryptoPage.navigate()
+    cryptoPage.scrollToSubscription()
+    cy.get(cryptoPage.mainPage_Subscription_Box)
+        .find(cryptoPage.mainPage_Subscription_Text_Field)
+        .type('123')
+    cy.get(cryptoPage.mainPage_Subscription_Button).click().then(()=>{
+        cy.wait(500)
+        assert.isNotNaN(cryptoPage.mainPage_Subscription_Success_Element, 'Did not subscribe due to invalid email')
+    })
+})
+
+//Test when input invalid email for subscription
+it('testInvalidEmailSubscriptionInputField', () => {
+    cryptoPage.navigate()
+    cryptoPage.scrollToSubscription()
+    cy.get(cryptoPage.mainPage_Subscription_Box)
+        .find(cryptoPage.mainPage_Subscription_Text_Field)
+        .type('test@xyz')
+    cy.get(cryptoPage.mainPage_Subscription_Button).click().then(()=>{
+        cy.wait(500)
+        assert.isNotNaN(cryptoPage.mainPage_Subscription_Success_Element, 'Did not subscribe due to invalid email')
     })
 })
 
@@ -21,12 +59,12 @@ it('testSubscriptionInputField', () => {
 it('testUncheckedAcknowledgeBoxField', () => {
     cryptoPage.navigate()
     cryptoPage.scrollToSubscription()
-    cy.get('.css-p0qlum')
-        .find('.css-1xa8gwl')
+    cy.get(cryptoPage.mainPage_Subscription_Box)
+        .find(cryptoPage.mainPage_Subscription_Text_Field)
         .type('test@yahoo.com')
-    cy.get('.SubscribeForm_subscriptionButton__3nRUQ').click().then(()=>{
+    cy.get(cryptoPage.mainPage_Subscription_Button).click().then(()=>{
         cy.wait(500)
-        assert.isNotNaN('.SubscribeForm_successBlock__2cpvI', 'Did not subscribe due to unchecked acknowledge box')
+        assert.isNotNaN(cryptoPage.mainPage_Subscription_Success_Element, 'Did not subscribe due to unchecked acknowledge box')
     })
 })
 
@@ -34,13 +72,13 @@ it('testUncheckedAcknowledgeBoxField', () => {
 it('testUncheckedVerifyBoxField', () => {
     cryptoPage.navigate()
     cryptoPage.scrollToSubscription()
-    cy.get('.css-p0qlum')
-        .find('.css-1xa8gwl')
+    cy.get(cryptoPage.mainPage_Subscription_Box)
+        .find(cryptoPage.mainPage_Subscription_Text_Field)
         .type('test@yahoo.com')
-    cy.get('.SubscribeForm_checkbox__z4ChK > rect').click()
-    cy.get('.SubscribeForm_subscriptionButton__3nRUQ').click().then(()=>{
+    cy.get(cryptoPage.mainPage_Subscription_Acknowledge_Checkbox).click()
+    cy.get(cryptoPage.mainPage_Subscription_Button).click().then(()=>{
         cy.wait(500)
-        assert.isNotNaN('.SubscribeForm_successBlock__2cpvI', 'Did not subscribe due to unchecked verify box')
+        assert.isNotNaN(cryptoPage.mainPage_Subscription_Success_Element, 'Did not subscribe due to unchecked verify box')
     })
 })
 
@@ -49,17 +87,17 @@ it('testUncheckedVerifyBoxField', () => {
 it('testUncheckedVerifyBoxField', () => {
     cryptoPage.navigate()
     cryptoPage.scrollToSubscription()
-    cy.get('.css-p0qlum')
-        .find('.css-1xa8gwl')
+    cy.get(cryptoPage.mainPage_Subscription_Box)
+        .find(cryptoPage.mainPage_Subscription_Text_Field)
         .type('test@yahoo.com')
-    cy.get('.SubscribeForm_checkbox__z4ChK > rect').click()
-    cy.get('.geetest_radar_tip').click()
+    cy.get(cryptoPage.mainPage_Subscription_Acknowledge_Checkbox).click()
+    cy.get(cryptoPage.mainPage_Subscription_Verify_Bot_Button).click()
     // will fail case here due to timeout
-    cy.get('.SubscribeForm_subscriptionButton__3nRUQ').click().then(()=>{
+    cy.get(cryptoPage.mainPage_Subscription_Button).click().then(()=>{
         cy.wait(500)
-        // assert.isNaN('.SubscribeForm_successBlock__2cpvI', 'Did subscribe for email updates')
-        assert.isNotNaN('.SubscribeForm_successBlock__2cpvI', 'Fail to  subscribe due to captcha')
+        // assert.isNaN(cryptoPage.mainPage_Subscription_Success_Element, 'Did subscribe for email updates')
+        assert.isNotNaN(cryptoPage.mainPage_Subscription_Success_Element, 'Fail to  subscribe due to captcha')
     })
 })
 
-//Covered 4 cases
+//Covered 7 cases

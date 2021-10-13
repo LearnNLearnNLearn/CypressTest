@@ -3,22 +3,24 @@ import {mainPage} from "../pages/main_page"
 
 const cryptoPage = new mainPage()
 
+
+
 //Test when on homepage, check for title
 it('testHomepageNFTCardTitle', () => {
     cryptoPage.navigate()
     cy.get(cryptoPage.mainPage_NFTCards)
-        .find('.NftCard_nftName__1Eh4U')
+        .find(cryptoPage.mainPage_Homepage_NFTCard_Title)
         .then(($div)=>{
-        let price = $div.text();
-        assert.isNotNull(price,'Title is not nil')
+        let title = $div.text();
+        assert.isNotNull(title,'Title is not nil')
     })
 })
 
-//Test when on homepage, check for price
-it('testHomepageNFTCardPrice', () => {
+//Test when on homepage, check for auction price
+it('testHomepageNFTCardAuctionPrice', () => {
     cryptoPage.navigate()
     cy.get(cryptoPage.mainPage_NFTCards)
-        .find('.css-qhhkrs')
+        .find(cryptoPage.mainPage_Homepage_NFTCard_Auction_Price)
         .then(($div)=>{
         let price = $div.text();
         assert.isNotNull(price,'Price is not nil')
@@ -29,15 +31,26 @@ it('testHomepageNFTCardPrice', () => {
 it('testHomepageNFTCardAssetVisual', () => {
     cryptoPage.navigate()
     cy.get(cryptoPage.mainPage_NFTCards)
-        .find('.NftCard_nftImage__3i7Yn')
+        .find(cryptoPage.mainPage_Homepage_NFTCard_Asset)
         .should('be.visible')
+})
+
+//Test when on homepage, check for quantity of sale
+it('testHomepageNFTCardQuantity', () => {
+    cryptoPage.navigate()
+    cy.get(cryptoPage.mainPage_NFTCards)
+        .find(cryptoPage.mainPage_Homepage_Quantity_For_Sale)
+        .then(($div)=>{
+        let quantity = $div.text();
+        assert.isNotNull(quantity,'Price is not nil')
+    })
 })
 
 //Test after clicking NFTCard, check for title
 it('testNFTCardTitle', () => {
     cryptoPage.navigate()
     cryptoPage.clickNFTCard()
-    cy.get('.ExploreNftDetailModalContainer_titleContainer__K8UrU')
+    cy.get(cryptoPage.mainPage_Click_NFTCard_Title)
         .should('not.be.empty')
         .and('be.visible')
         .then(($div)=>{
@@ -50,7 +63,7 @@ it('testNFTCardTitle', () => {
 it('testNFTCardPrice', () => {
     cryptoPage.navigate()
     cryptoPage.clickNFTCard()
-    cy.get('.NftDetailModalBaseContainer_nftDetailContainer__1PbTN')
+    cy.get(cryptoPage.mainPage_Click_NFTCard_Price)
         .find('.css-e596xv')
         .should('not.be.empty')
         .and('be.visible')
@@ -64,8 +77,22 @@ it('testNFTCardPrice', () => {
 it('testNFTCardAssetVisual', () => {
     cryptoPage.navigate()
     cryptoPage.clickNFTCard()
-    cy.get('.NftDetailModalBaseContainer_artImage__2aFOT')
+    cy.get(cryptoPage.mainPage_Click_NFTCard_Asset)
         .should('be.visible')
+})
+
+it('testNFTCardEditionButton', () => {
+    cryptoPage.navigate()
+    cryptoPage.clickNFTCard()
+    cy.get(cryptoPage.mainPage_Click_NFTCard_Bid_Container)
+        .contains(cryptoPage.mainPage_Click_NFTCard_Edition_Button, 'Select edition')
+        .should('be.visible')
+        .click()
+        .then(()=>{
+            cy.wait(500)
+            assert.isNotNaN(cryptoPage.mainPage_Click_NFT_Edition_Container, 'Edition screen is not nil')    
+        })        
+    cy.url().should('include', '/editions-mode=select')
 })
 
 //Test after clicking bid button, check if redirect to login
@@ -73,13 +100,15 @@ it('testNFTCardAssetVisual', () => {
 it('testNFTCardBidButton', () => {
     cryptoPage.navigate()
     cryptoPage.clickNFTCard()
-    cy.get('.Modal_modalContainer__28A7L')
-        .contains('.NftDetailModalBaseContainer_button__1pt3Y', 'Place a bid')
+    cy.get(cryptoPage.mainPage_Click_NFTCard_Bid_Container)
+        .contains(cryptoPage.mainPage_Click_NFTCard_Bid_Button, 'Place a bid')
         .should('be.visible')
         .click()        
     cy.url().should('include', '/login')
 })
 
 
-//Covered 7 cases
+
+
+//Covered 9 cases
 //TODO: check if price / title / additional details shown on homepage is same as after clicking NFT card
