@@ -26,6 +26,8 @@ Create classes to use when navigating to page
 -marketPlacePage (this is used to navigate to https://crypto.com/nft/marketplace)
 
 
+Variables in the classes are to ensure better reusability / maintenance
+
 Methods in the classes are mainly used for navigation purposes (i.e navigate to page, navigate to NFTCard, navigate to subscription, navigate to previous page)
 
 
@@ -35,9 +37,11 @@ Methods in the classes are mainly used for navigation purposes (i.e navigate to 
 
 For testing NFT, I created test cases to check for:
 
--When user is on homepage, if image / title / price is visible 
+-When user is on homepage, if image / title / price is visible / Quantity for sale
 
 -When user clicks on NFTCard, if image / title / price is visible
+
+-When user clicks on NFTCard, if select edition button can be clicked and redirected to editions page 
 
 -When user clicks on NFTCard, if bid button can be clicked and redirected to login (this is on assumption user isn't logged in as currently I do not have account to test for when user is logged in)
 
@@ -45,6 +49,12 @@ For testing NFT, I created test cases to check for:
 ### Test Subscription
 
 For testing subscription, I created test cases to check for:
+
+-When user doesn't input anything into text field
+
+-When user inputs text 
+
+-When user inputs number
 
 -When user inputs invalid email address
 
