@@ -3,8 +3,6 @@ import {mainPage} from "../pages/main_page"
 
 const cryptoPage = new mainPage()
 
-
-
 //Test when on homepage, check for title
 it('testHomepageNFTCardTitle', () => {
     cryptoPage.navigate()
@@ -81,19 +79,7 @@ it('testNFTCardAssetVisual', () => {
         .should('be.visible')
 })
 
-it('testNFTCardEditionButton', () => {
-    cryptoPage.navigate()
-    cryptoPage.clickNFTCard()
-    cy.get(cryptoPage.mainPage_Click_NFTCard_Bid_Container)
-        .contains(cryptoPage.mainPage_Click_NFTCard_Edition_Button, 'Select edition')
-        .should('be.visible')
-        .click()
-        .then(()=>{
-            cy.wait(500)
-            assert.isNotNaN(cryptoPage.mainPage_Click_NFT_Edition_Container, 'Edition screen is not nil')    
-        })        
-    cy.url().should('include', '/editions-mode=select')
-})
+
 
 //Test after clicking bid button, check if redirect to login
 //This test is written on the assumption that user is not signed in clicking (currently no account to check for signed in)
@@ -107,7 +93,20 @@ it('testNFTCardBidButton', () => {
     cy.url().should('include', '/login')
 })
 
-
+//Test after clicking select edition button, check if will show select edition page
+it('testNFTCardEditionButton', () => {
+    cryptoPage.navigate()
+    cryptoPage.clickNFTCard()
+    cy.get(cryptoPage.mainPage_Click_NFT_Edition_Container)
+        .scrollIntoView()
+        .should('be.visible')
+        .click()
+        .then(()=>{
+            cy.wait(500)
+            cy.get(cryptoPage.mainPage_Click_NFT_Edition_Page)
+                .should('be.visible')
+        })        
+})
 
 
 //Covered 9 cases

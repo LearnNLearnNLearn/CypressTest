@@ -15,8 +15,9 @@ export class mainPage {
     mainPage_Click_NFTCard_Asset = '.NftDetailModalBaseContainer_artImage__2aFOT';
     mainPage_Click_NFTCard_Bid_Container = '.Modal_modalContainer__28A7L';
     mainPage_Click_NFTCard_Bid_Button = '.NftDetailModalBaseContainer_button__1pt3Y';
+    mainPage_Click_NFT_Edition_Container = '.ExploreNftDetailModalContainer_selectOtherEditionContainer__3_xf7';
     mainPage_Click_NFTCard_Edition_Button = '.ExploreNftDetailModalContainer_selectOtherEdition__1LAZo';
-    mainPage_Click_NFT_Edition_Container = '.EditionsModalContainer_container__NTU7b';
+    mainPage_Click_NFT_Edition_Page = '.EditionsModalContainer_container__NTU7b';
 
     mainPage_Subscription_Box = '.css-p0qlum';
     mainPage_Subscription_Text_Field = '.css-1xa8gwl';
