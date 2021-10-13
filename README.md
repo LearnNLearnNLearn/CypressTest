@@ -12,8 +12,11 @@ Assumptions made are the following:
 
 
 Results from running the case:
+
 -24 cases passed
+
 -1 case failed (this is due to not being able to click verify box on subscription)
+
 
 
 # Setup
