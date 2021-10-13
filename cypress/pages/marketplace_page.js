@@ -1,6 +1,6 @@
 export class marketPlacePage {
 
-    marketPlace_URL = 'htps://crypto.com/nft/mtarketplace';
+    marketPlace_URL = 'https://crypto.com/nft/marketplace';
     marketPlace_NFTCards = '.css-1b7umkn';
 
 

@@ -61,3 +61,5 @@ it('testUncheckedVerifyBoxField', () => {
         assert.isNotNaN('.SubscribeForm_successBlock__2cpvI', 'Fail to  subscribe due to captcha')
     })
 })
+
+//Covered 4 cases

@@ -3,7 +3,6 @@ import {mainPage} from "../pages/main_page"
 
 const cryptoPage = new mainPage()
 
-
 //Test when on homepage, check for title
 it('testHomepageNFTCardTitle', () => {
     cryptoPage.navigate()
@@ -34,7 +33,7 @@ it('testHomepageNFTCardAssetVisual', () => {
         .should('be.visible')
 })
 
-//Test after clicking NFT, check for title
+//Test after clicking NFTCard, check for title
 it('testNFTCardTitle', () => {
     cryptoPage.navigate()
     cryptoPage.clickNFTCard()
@@ -47,7 +46,7 @@ it('testNFTCardTitle', () => {
     })
 })
 
-//Test after clicking NFT, check for price
+//Test after clicking NFTCard, check for price
 it('testNFTCardPrice', () => {
     cryptoPage.navigate()
     cryptoPage.clickNFTCard()
@@ -61,7 +60,7 @@ it('testNFTCardPrice', () => {
     })
 })
 
-//Test after clicking NFT, check for asset
+//Test after clicking NFTCard, check for asset
 it('testNFTCardAssetVisual', () => {
     cryptoPage.navigate()
     cryptoPage.clickNFTCard()
@@ -82,4 +81,5 @@ it('testNFTCardBidButton', () => {
 })
 
 
+//Covered 7 cases
 //TODO: check if price / title / additional details shown on homepage is same as after clicking NFT card
