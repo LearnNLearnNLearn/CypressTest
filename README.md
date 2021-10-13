@@ -2,6 +2,16 @@
 
 Code for testing site using Cypress and Javascript
 
+Assumptions made are the following:
+-Test case is defined as a single case to check for 1 thing only (e.g. for Test_NFT.js, there are 9 test case covered)
+-Test case was written for 3 modules, each modules covering several cases
+-Automate checking of NFT card included check for price / quantity / title / redirection (as mentioned below). Not every possible case is covered
+
+
+Results from running the case:
+-24 cases passed
+-1 case failed (this is due to not being able to click verify box on subscription)
+
 
 # Setup
 
