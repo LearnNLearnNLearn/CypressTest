@@ -15,7 +15,7 @@ Code for testing site using Cypress and Javascript
 
 -24 cases passed
 
--1 case failed (this is due to not being able to click verify box on subscription)
+-1 case failed (this is due to not being able to click verify box on subscription); this case is left inside with other cases to show that case that should fail has failed
 
 
 
