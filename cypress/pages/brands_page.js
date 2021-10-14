@@ -26,5 +26,4 @@ export class brandPage {
             .should('be.visible')
     }
 
-    //TODO: Can create a base class with similar functionality for botoh main_page and marketplace_page
 }

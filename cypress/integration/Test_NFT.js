@@ -3,6 +3,7 @@ import {mainPage} from "../pages/main_page"
 
 const cryptoPage = new mainPage()
 
+
 //Test when on homepage, check for title
 it('testHomepageNFTCardTitle', () => {
     cryptoPage.navigate()
@@ -41,6 +42,17 @@ it('testHomepageNFTCardQuantity', () => {
         .then(($div)=>{
         let quantity = $div.text();
         assert.isNotNull(quantity,'Price is not nil')
+    })
+})
+
+//Test when on homepage, check for total sales
+it('testHomepageNFTCardTotalSales', () => {
+    cryptoPage.navigate()
+    cy.get(cryptoPage.mainPage_NFTCards)
+        .find(cryptoPage.mainPage_Total_Sales)
+        .then(($div)=>{
+        let totalSales = $div.text();
+        assert.isNotNull(totalSales,'Total sales is not nil')
     })
 })
 
@@ -109,5 +121,5 @@ it('testNFTCardEditionButton', () => {
 })
 
 
-//Covered 9 cases
+//Covered 10 cases
 //TODO: check if price / title / additional details shown on homepage is same as after clicking NFT card

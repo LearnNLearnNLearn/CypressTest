@@ -9,6 +9,7 @@ export class mainPage {
     mainPage_Homepage_NFTCard_Auction_Price = '.css-qhhkrs';
     mainPage_Homepage_NFTCard_Asset = '.NftCard_nftImage__3i7Yn';
     mainPage_Homepage_Quantity_For_Sale = '.css-1balkpd';
+    mainPage_Total_Sales = '.css-1mqtv8s';
 
     mainPage_Click_NFTCard_Title = '.ExploreNftDetailModalContainer_titleContainer__K8UrU';
     mainPage_Click_NFTCard_Price = '.NftDetailModalBaseContainer_nftDetailContainer__1PbTN';
@@ -25,6 +26,8 @@ export class mainPage {
     mainPage_Subscription_Success_Element = '.SubscribeForm_successBlock__2cpvI';
     mainPage_Subscription_Acknowledge_Checkbox = '.SubscribeForm_checkbox__z4ChK > rect';
     mainPage_Subscription_Verify_Bot_Button = '.geetest_radar_tip';
+
+    mainPage_Search_Bar = '.css-1vdtwp4';
 
     navigate(){
         cy.visit(this.mainPage_URL)
