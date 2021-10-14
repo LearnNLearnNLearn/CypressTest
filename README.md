@@ -10,6 +10,9 @@ Code for testing site using Cypress and Javascript
 
 -Automate checking of NFT card included check for price / quantity / title / redirection (as mentioned below). Not every possible case is covered
 
+-The test cases written focused on functionality instead of performance of test cases
+
+
 
 ### Results from running the case:
 
