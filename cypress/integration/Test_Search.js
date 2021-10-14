@@ -36,10 +36,10 @@ it('testSearchWithSymbols', () => {
     const testURL = '/nft/marketplace?search=@#!@$'
     cy.get(cryptoPage.mainPage_Search_Bar).type(testValue)
     cy.get(cryptoPage.mainPage_Search_Bar).type('{enter}')
-    cy.url()
-        .should('include', testURL)
-    // cy.get('.DiscoverPage_title__3U24I')
-    //     .should('include.text', testValue)  --> symbols are evaluated different in URL
+    // cy.url()
+    //     .should('include', testURL)   --> symbols are evaluated different in URL
+    cy.get('.DiscoverPage_title__3U24I')
+        .should('include.text', testValue) 
 })
 
 //Test search bar on homepage without input
