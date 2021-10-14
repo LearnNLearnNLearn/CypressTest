@@ -13,7 +13,7 @@ Code for testing site using Cypress and Javascript
 
 ### Results from running the case:
 
--24 cases passed
+-29 cases passed
 
 -1 case failed (this is due to not being able to click verify box on subscription); this case is left inside with other cases to show that case that should fail has failed
 
@@ -93,5 +93,13 @@ For testing marketplace, I created test cases to check for:
 
 -Dropdown menu for filter
 
+
+### Test Brands
+
+For testing brands, I created test cases to check for:
+
+-Check if dropdown list is visible
+
+-Redirection to each dropdown button
 
 
